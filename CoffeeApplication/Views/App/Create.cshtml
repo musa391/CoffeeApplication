@@ -1,0 +1,26 @@
+﻿@model CoffeeApplication.Models.App
+
+@{
+    ViewData["Title"] = "Kendi Kahveni Oluştur";
+}
+
+<h2>Kendi Kahveni Tasarla</h2>
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label for="Name">Kahve Adı</label>
+        <input asp-for="Name" class="form-control" placeholder="Örn: Özel Latte" />
+    </div>
+
+    <div class="form-group">
+        <label for="Description">Açıklama</label>
+        <textarea asp-for="Description" class="form-control" placeholder="Kahven hakkında detay yaz..."></textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="material">Malzemeler</label>
+        <input asp-for="material" class="form-control" placeholder="Örn: Süt, Espresso, Tarçın" />
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-3">Kaydet</button>
+</form>

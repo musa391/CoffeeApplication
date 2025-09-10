@@ -1,0 +1,62 @@
+﻿@model IEnumerable<CoffeeApplication.Models.Service>
+
+
+
+<div class="services-section">
+    <div class="container">
+        <h2 class="section-title">Hizmetlerimiz</h2>
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-4 mb-4">
+                    <div class="service-card">
+                        <h3>@item.Title</h3>
+                        <p>@item.Description</p>
+                        <img src="@item.ImageUrl" alt="@item.Title" class="img-fluid" />
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+<style>
+.services-section {
+    padding: 60px 0;
+    background: #fafafa;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 40px;
+    color: #333;
+    font-weight: 700;
+}
+
+.service-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 25px;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    height: 100%;
+}
+
+.service-card h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #6c3f1a; /* kahve tonunda */
+}
+
+.service-card p {
+    font-size: 0.95rem;
+    color: #555;
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+</style>

@@ -1,0 +1,98 @@
+﻿@model IEnumerable<CoffeeApplication.Models.Menu>
+
+<div class="d-flex justify-content-center mb-4">
+    <div class="btn-group">
+        <a asp-controller="Menu" asp-action="Index"
+           class="btn btn-outline-dark px-4 py-2 rounded-pill fw-semibold">
+            Tümü
+        </a>
+        <a asp-controller="Menu" asp-action="Index" asp-route-category="Sıcak"
+           class="btn btn-outline-dark px-4 py-2 rounded-pill fw-semibold">
+            Sıcak
+        </a>
+        <a asp-controller="Menu" asp-action="Index" asp-route-category="Soğuk"
+           class="btn btn-outline-dark px-4 py-2 rounded-pill fw-semibold">
+            Soğuk
+        </a>
+        <a asp-controller="Menu" asp-action="Index" asp-route-category="Tatlı"
+           class="btn btn-outline-dark px-4 py-2 rounded-pill fw-semibold">
+            Tatlı
+        </a>
+    </div>
+</div>
+
+<div class="container mt-5">
+    <div class="row">
+
+
+       
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">@item.Name</h5>
+                        <p class="card-text">@item.Description</p>
+                        <img src="@item.ImageUrl" alt="@item.Name" />
+                        @if (item.Price > 0)
+                        {
+                            <p class="card-text"><strong>@item.Price ₺</strong></p>
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<style>
+    .container.mt-5 {
+        margin-top: 50px;
+    }
+
+    /* Kartlar */
+    .card {
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+    /* Kart başlığı */
+    .card-title {
+        font-weight: 600;
+        font-size: 1.25rem;
+        margin-bottom: 10px;
+    }
+
+    /* Kart açıklaması */
+    .card-text {
+        color: #555;
+        font-size: 0.95rem;
+        margin-bottom: 15px;
+    }
+
+        /* Fiyat */
+        .card-text strong {
+            color: #d35400;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+    /* Resim ayarları */
+    .card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 10px;
+        margin-bottom: 15px;
+    }
+
+
+</style>
+

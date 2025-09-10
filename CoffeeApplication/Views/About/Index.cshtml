@@ -1,0 +1,51 @@
+﻿@model IEnumerable<CoffeeApplication.Models.About>
+
+@{
+    var about = Model.FirstOrDefault();
+}
+
+<div class="about-section d-flex justify-content-center align-items-center text-center py-5">
+    <div class="about-content">
+        <img src="~/img/@about?.ImageUrl" class="about-img mb-4" alt="@about?.Baslık" />
+        <h1 class="display-3 mb-4">@about?.Baslık</h1>
+        <p class="lead mb-4" style="max-width: 800px; margin: 0 auto;">@about?.Description</p>
+        <p class="text-secondary mb-1">@about?.Yazar</p>
+        <p class="text-secondary">@about?.YayınTarihi.ToShortDateString()</p>
+    </div>
+</div>
+
+<style>
+    .about-section {
+        min-height: 90vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(to bottom, #fdfcfb, #f0f0f0);
+        padding: 60px 15px;
+    }
+
+    .about-content {
+        max-width: 900px;
+    }
+
+    .about-img {
+        width: 100%;
+        max-width: 500px;
+        height: auto;
+        object-fit: cover;
+        border-radius: 10px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    .about-section h1 {
+        font-size: 3rem;
+        font-weight: bold;
+    }
+
+    .about-section p.lead {
+        font-size: 1.2rem;
+        line-height: 1.8;
+    }
+
+   
+</style>

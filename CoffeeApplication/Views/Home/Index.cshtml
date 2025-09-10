@@ -1,0 +1,63 @@
+﻿@{
+    ViewData["Title"] = "Ana Sayfa";
+}
+<div class="container-fluid py-5">
+    <div class="container">
+        <div class="section-title">
+            <h4 class="text-primary text-uppercase" style="letter-spacing: 5px;">Hakkımızda</h4>
+            <h1 class="display-4">1950'den Beri Hizmetinizde</h1>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 py-0 py-lg-5">
+                <h1 class="mb-3">Hikayemiz</h1>
+                <h5 class="mb-3">1950 yılından bu yana kahve tutkumuzu sizlerle paylaşıyoruz. Her fincanda kalite ve özen sunuyoruz.</h5>
+                <p>Yıllar boyunca değişmeyen ilkemiz; misafirlerimize en iyi kahve deneyimini yaşatmak oldu. Özenle seçilen çekirdekler, ustalıkla harmanlanarak eşsiz bir lezzete dönüşüyor. Bizim için kahve sadece bir içecek değil, aynı zamanda paylaşılan bir mutluluktur.</p>
+                <a href="" class="btn btn-secondary font-weight-bold py-2 px-4 mt-2">Daha Fazla</a>
+            </div>
+            <div class="col-lg-4 py-5 py-lg-0" style="min-height: 500px;">
+                <div class="position-relative h-100">
+                    <img class="position-absolute w-100 h-100" src="~/img/about.png" style="object-fit: cover;">
+                </div>
+            </div>
+            <div class="col-lg-4 py-0 py-lg-5">
+                <h1 class="mb-3">Vizyonumuz</h1>
+                <p>Amacımız; kahve kültürünü her geçen gün daha da ileriye taşıyarak misafirlerimize eşsiz bir deneyim sunmaktır. Yenilikçi yaklaşımımız, kaliteli ürünlerimiz ve samimi hizmetimizle fark yaratıyoruz.</p>
+                <h5 class="mb-3"><i class="fa fa-check text-primary mr-3"></i>Her zaman taze kahve</h5>
+                <h5 class="mb-3"><i class="fa fa-check text-primary mr-3"></i>Kalite ve güvenilirlik</h5>
+                <h5 class="mb-3"><i class="fa fa-check text-primary mr-3"></i>Misafir memnuniyeti önceliğimiz</h5>
+                <a href="" class="btn btn-primary font-weight-bold py-2 px-4 mt-2">Daha Fazla</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="offer container-fluid my-5 py-5 text-center position-relative overlay-top overlay-bottom">
+    <div class="container py-5">
+        <h1 class="display-3 text-primary mt-3">%50 İNDİRİM</h1>
+        <h1 class="text-white mb-3">Pazar Günü Özel Kampanya</h1>
+        <h4 class="text-white font-weight-normal mb-4 pb-3">Sadece 1 Eylül - 30 Eylül 2025 tarihleri arasında geçerli</h4>
+        <form asp-controller="Kampanya" asp-action="KayitOl" method="post" class="form-inline justify-content-center mb-4">
+            <div class="input-group">
+                <input type="email" name="eposta" class="form-control p-4" placeholder="E-posta Adresiniz" style="height: 60px;" required>
+                <div class="input-group-append">
+                    <button class="btn btn-primary font-weight-bold px-4" type="submit">Kayıt Ol</button>
+                </div>
+            </div>
+        </form>
+        @if (TempData["Basarili"] != null)
+        {
+            <div class="alert alert-success">@TempData["Basarili"]</div>
+        }
+
+        @if (TempData["Hata"] != null)
+        {
+            <div class="alert alert-danger">@TempData["Hata"]</div>
+        }
+    </div>
+</div>
+
+
+
+
+
+
+ 
